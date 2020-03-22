@@ -110,7 +110,6 @@ public class ConverterServiceImpl implements ConverterService{
 			decodedParam.append(aux);
 		} else {
 			for (TranslateEnum te : TranslateEnum.values()) {
-
 				if (te.getCode().contentEquals(param)) {
 					aux = te.name();
 					decodedParam.append(aux);
