@@ -105,7 +105,7 @@ public class ConverterServiceImpl implements ConverterService{
 	private String decodeByValue(String param) {
 		StringBuffer decodedParam = new StringBuffer();
 		String aux = "";
-		if (param.isBlank()) {
+		if (param.isEmpty()) {
 			aux = " ";
 			decodedParam.append(aux);
 		} else {
