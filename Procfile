@@ -1,1 +1,1 @@
-web: java -jar target/morsedecoder-1.0.0.jar
+web: java -jar target/morsedecoder-0.0.1-SNAPSHOT.war
