@@ -133,7 +133,7 @@ public class ConverterServiceImpl implements ConverterService{
 				aux.append(this.decodeByName(x));
 			}
 		}
-		return aux.toString();
+		return aux.toString().trim();
 	}
 	
 	/**
@@ -148,7 +148,7 @@ public class ConverterServiceImpl implements ConverterService{
 		for (int i = 0; i < parts.length; i++) {
 			aux.append(this.decodeByValue(parts[i]));
 		}
-		return aux.toString();
+		return aux.toString().trim();
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class ConverterServiceImpl implements ConverterService{
 	 */
 	public String getMorseByBitsString(String bitsInput) {
 		String morseResult = "";
-		int limitPoint = getLimitByMedia(bitsInput);
+		int limitPoint = getLimit(bitsInput);
 		int counter1 = 0;
 		int counter0 = 0;
 		char[] chars = bitsInput.toCharArray();
@@ -189,7 +189,7 @@ public class ConverterServiceImpl implements ConverterService{
 				counter1 = 0;
 			}
 		}
-		return morseResult;
+		return morseResult.trim();
 	}
 
 	
@@ -198,7 +198,7 @@ public class ConverterServiceImpl implements ConverterService{
 	 * @param String bits sequence (>4 zeros = separator, > 8 zeros space)
 	 * @return String morse text
 	 */
-	public int getLimitByMedia(String bitsInput) {
+	public int getLimit(String bitsInput) {
 
 		pointsAndHyphensLimits = new HashMap<Integer, Integer>();
 		int counter = 0;
@@ -220,12 +220,12 @@ public class ConverterServiceImpl implements ConverterService{
 
 		}
 		System.out.println(pointsAndHyphensLimits);
-		// double median = calculateMedian();
-		double media = calculateMedia();
-		int mediaInt = (int) Math.round(media);
-		System.out.println(mediaInt);
+		// double media = calculateMedia();
+		double median = calculateMedian();
+		int medianInt = (int) Math.round(median);
+		System.out.println(medianInt);
 
-		return mediaInt;
+		return medianInt;
 	}
 
 	private void putCountersInMap(int counter) {
